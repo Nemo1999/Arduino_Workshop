@@ -22,10 +22,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-
-  
+/*    
 // ========== LED 測試 =============
-/*
+
   analogWrite(led_red, 50);
   delay(500);
   analogWrite(led_red, 255);
@@ -41,7 +40,6 @@ void loop() {
   analogWrite(led_green, 255);
   delay(500);
 */
-
 /*
 // ========== 漸層 ========
 
@@ -55,7 +53,7 @@ void loop() {
   int bH = 50, bL = 255;
   int gH = 200, gL = 255;
   
-  
+  //每個階層平均要改變多少？
   float rStep = float(rH - rL)/ nStep;
   float gStep = float(gH - gL)/ nStep;
   float bStep = float(bH - bL)/ nStep;
@@ -87,13 +85,13 @@ void loop() {
 */
 
 /*
-//============光敏電阻============
+//===========大拼盤============
     int rH = 50, rL = 255;
     int bH = 50, bL = 255;
     int gH = 200, gL = 255;
 
-    int lLow = 20;
-    int lHigh = 150;
+    int lLow = 10;
+    int lHigh = 70;
     int l = analogRead(light);
     
     float ratio = max(0, min(0.99, float(l - lLow) / float(lHigh - lLow)));
@@ -103,8 +101,9 @@ void loop() {
     analogWrite(led_blue, bL + (bH - bL)* (1-ratio));
     analogWrite(led_red, rL + (rH - rL)* (ratio));
     if(ratio < 0.7)
-      tone(speaker, 1000 * (1 - ratio));
+      tone(speaker,  exp(4.6 + 4*log(2)*(1 - ratio)));
     else
       noTone(speaker);
+    delay(50);
 */    
 }
