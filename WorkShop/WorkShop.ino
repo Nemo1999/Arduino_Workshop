@@ -13,6 +13,7 @@ void setup() {
   pinMode(speaker, OUTPUT);
   pinMode(light, INPUT);
 
+
   digitalWrite(led_red, 255);
   digitalWrite(led_blue, 255);
   digitalWrite(led_green, 255);
@@ -21,6 +22,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+/*    
+// ========== LED 測試 =============
+
 
 // ==========Digital LED 測試 ============
 
@@ -57,6 +61,7 @@ void loop() {
   delay(500);
 */
 
+
 /*
 // ========== 漸層 ========
 
@@ -70,7 +75,11 @@ void loop() {
   int bH = 50, bL = 255;
   int gH = 200, gL = 255;
   
+<<<<<<< HEAD
   
+=======
+  //每個階層平均要改變多少？
+>>>>>>> ab52869dda2477565c805ececa62f7882127714b
   float rStep = float(rH - rL)/ nStep;
   float gStep = float(gH - gL)/ nStep;
   float bStep = float(bH - bL)/ nStep;
@@ -102,13 +111,22 @@ void loop() {
 */
 
 /*
+<<<<<<< HEAD
 //============光敏電阻============
+=======
+//===========大拼盤============
+>>>>>>> ab52869dda2477565c805ececa62f7882127714b
     int rH = 50, rL = 255;
     int bH = 50, bL = 255;
     int gH = 200, gL = 255;
 
+<<<<<<< HEAD
     int lLow = 20;
     int lHigh = 150;
+=======
+    int lLow = 10;
+    int lHigh = 70;
+>>>>>>> ab52869dda2477565c805ececa62f7882127714b
     int l = analogRead(light);
     
     float ratio = max(0, min(0.99, float(l - lLow) / float(lHigh - lLow)));
@@ -118,8 +136,15 @@ void loop() {
     analogWrite(led_blue, bL + (bH - bL)* (1-ratio));
     analogWrite(led_red, rL + (rH - rL)* (ratio));
     if(ratio < 0.7)
+<<<<<<< HEAD
       tone(speaker, 1000 * (1 - ratio));
     else
       noTone(speaker);
+=======
+      tone(speaker,  exp(4.6 + 4*log(2)*(1 - ratio)));
+    else
+      noTone(speaker);
+    delay(50);
+>>>>>>> ab52869dda2477565c805ececa62f7882127714b
 */    
 }
